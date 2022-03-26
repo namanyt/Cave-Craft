@@ -1,1 +1,1 @@
-This is the Official Crave Craft Store Repo 😊
+This is the Official Crave Craft Repo 😊
