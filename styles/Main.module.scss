@@ -1,13 +1,67 @@
 .container {
   margin: 0;
   padding: 0;
+}
 
-  font-size: 100px;
+.Nav {
+  overflow: hidden;
+  color: white;
+}
 
-  p {
-    font-size: 40px;
+.bgImage {
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: fixed;
+}
+
+.Logo {
+  position: absolute;
+
+  font-size: 30px;
+  text-decoration: solid;
+  font-weight: 400;
+
+  margin-top: 5vh;
+  margin-left: 10vw;
+  padding-top: 15px;
+
+  img {
+    width: 1em;
+    margin-top: -0.3em;
   }
 
-  text-align: center;
-  margin-top: calc(50vh - 10vh);
+  ul {
+    list-style-type: none;
+    position: absolute;
+    overflow: hidden;
+    display: inline;
+    width: 70vw;
+
+    li {
+      float: right;
+      display: block;
+      text-align: center;
+      padding: 15px 15px;
+      margin-left: 30px;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: 0.4s;
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+
+      &:hover {
+        background-color: rgba(165, 165, 165, 0.2);
+        border-radius: 25px;
+        // color: #545454;
+      }
+
+      // text-align: center;
+    }
+  }
 }

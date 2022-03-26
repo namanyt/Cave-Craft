@@ -12,64 +12,36 @@ const App: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Cave Craft Store</title>
-        <meta name="description" content="This is the official store for Cave Craft Server" />
+        <title>Cave Craft</title>
+        <meta name="description" content="This is the Official Website for Cave Craft Server" />
+
+        {/* Social Media Tags */}
+        <meta property="og:title" content="Cave Craft Server" />
+        <meta property="og:url" content="https://cavecraft.in" />
+        <meta property="og:image" content="/favicon-256.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:description" content="This is the Cave Craft Minecraft Server." />
+        <meta property="og:site_name" content="Cave Craft.in" />
+        <meta name="twitter:image:alt" content="no image text provided" />
+
         <link rel="icon" href="/favicon-16.png" />
       </Head>
 
-      <h1>
-        <AnimatePresence>
-          {visible && (
-            <motion.div
-              initial={{ opacity: 1 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <SplitText
-                initial={{ y: '100%' }}
-                animate="visible"
-                variants={{
-                  visible: (i: number) => ({
-                    y: 0,
-                    transition: {
-                      delay: i * 0.1
-                    }
-                  })
-                }}
-              >
-                This is the Official Cave Craft Store 😊
-              </SplitText>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </h1>
 
-      <p>
-        <AnimatePresence>
-          {visible && (
-            <motion.div
-              initial={{ opacity: 1 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <SplitText
-                initial={{ y: '100%' }}
-                animate="visible"
-                variants={{
-                  visible: (i: number) => ({
-                    y: 0,
-                    transition: {
-                      delay: i * 0.1
-                    }
-                  })
-                }}
-              >
-                💻 Work in Progress
-              </SplitText>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </p>
+      <nav className={styles.Nav}>
+        <div className={styles.Logo}>
+          <img src="/favicon-256.png" alt="" /> Cave Craft.in
+
+          <ul>
+            <li> <a href="/store">Store</a> </li>
+            <li> <a href="/about">About</a> </li>
+            <li> <a href="/">Home</a> </li>
+          </ul>
+
+        </div>
+      </nav>
+
+      <img src="https://i.imgur.com/XL2PAd3.png" alt="" className={styles.bgImage} />
     </div>
   )
 }
