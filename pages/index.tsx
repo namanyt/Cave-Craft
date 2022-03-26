@@ -5,8 +5,24 @@ import styles from '../styles/Main.module.scss';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { SplitText } from '../Utils/SpiltText';
+import { Alert, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { useEffect, useState } from 'react';
 
 const App: NextPage = () => {
+  let [showAlert, setShowAlert] = useState(false);
+
+  const handleAlerts = () => {
+    setShowAlert(true);
+    // setTimeout(() => {
+    //   setShowAlert(false);
+    // }, 2000)
+  }
+
+  const copyIp = () => {
+    navigator.clipboard.writeText('play.cavecraft.in');
+    handleAlerts();
+  }
+
   return (
     <>
       <div className={styles.container}>
@@ -29,7 +45,7 @@ const App: NextPage = () => {
 
         <nav className={styles.Nav}>
           <div className={styles.Logo}>
-            <img src="/favicon-256.png" alt="" /> Cave Craft.in
+            <span><img src="/favicon-256.png" alt="" /> Cave Craft.in </span>
 
             <ul>
               <li> <Link href="/store"> Store </Link> </li>
@@ -43,32 +59,48 @@ const App: NextPage = () => {
         <img src="https://i.imgur.com/XL2PAd3.png" alt="" className={styles.bgImage} />
 
         <section className={styles.Header}>
-          <h1 className={styles.Title}>
-            <AnimatePresence>
-              {true && (
-                <motion.div
-                  initial={{ opacity: 1 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <SplitText
-                    initial={{ y: '100%' }}
-                    animate="visible"
-                    variants={{
-                      visible: (i: number) => ({
-                        y: 0,
-                        transition: {
-                          delay: i * 0.1
-                        }
-                      })
-                    }}
+          <OverlayTrigger
+            placement='top'
+            overlay={<Tooltip>Click to copy the IP</Tooltip>}
+          >
+            <h1 className={styles.Title} onClick={() => copyIp()}>
+              <AnimatePresence>
+                {true && (
+                  <motion.div
+                    initial={{ opacity: 1 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
                   >
-                    Cave Craft
-                  </SplitText>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </h1>
+                    <SplitText
+                      initial={{ y: '100%' }}
+                      animate="visible"
+                      variants={{
+                        visible: (i: number) => ({
+                          y: 0,
+                          transition: {
+                            delay: i * 0.1
+                          }
+                        })
+                      }}
+                    >
+                      Cave Craft
+                    </SplitText>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </h1>
+          </OverlayTrigger>
+
+          <Alert
+            key='primary'
+            variant='success'
+            show={showAlert}
+            className={styles.Alert}
+            dismissible={true}
+            onClose={() => {setShowAlert(false)}}
+          >
+            Copied to Clipbord
+          </Alert>
         </section>
       </div>
 

@@ -26,6 +26,19 @@
 }
 
 .Logo {
+  span {
+    z-index: 10000;
+    position: absolute;
+    width: 140px;
+    transition: .2s;
+    text-shadow: 3px 3px 5px #ffffffff;
+
+    &:hover {
+      transform: translateY(-2px);
+      text-shadow: 3px 5px 5px #fffffffc;
+    }
+  }
+
   position: absolute;
 
   font-size: 20px;
@@ -72,6 +85,14 @@
       // text-align: center;
     }
   }
+}
+
+.Alert {
+  position: absolute;
+  width: 17vw;
+  text-align: right;
+  margin-top: 90vh;
+  margin-left: 79vw;
 }
 
 .Header {
