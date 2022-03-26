@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const About: NextPage = () => {
   return (
-    <Link href='/'> This is the Store Page </Link>
+    <Link href='/'> This is the About Page </Link>
   )
 }
 
