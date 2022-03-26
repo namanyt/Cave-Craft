@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 export function SplitText(props: any) {
   let { children, ...rest } = props;
 
-  let words = children.split(' ')
+  let words = children.split('')
   return words.map((word: string | number, i: number) => {
     return (
       <div
@@ -15,7 +15,7 @@ export function SplitText(props: any) {
           style={{ display: 'inline-block', willChange: 'transform' }}
           custom={i}
         >
-          {word + (i !== words.length - 1 ? '\u00A0' : '')}
+          {word + (words[i] == ' ' ? '\u00A0' : '')}
         </motion.div>
       </div>
     )
