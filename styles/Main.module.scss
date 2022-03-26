@@ -17,7 +17,7 @@
 .bgImage {
   filter: brightness(90%) blur(3px);
 
-  z-index: -1;
+  z-index: -1000;
   width: 102vw;
   height: 108vh;
   top: -5vh;
@@ -106,7 +106,7 @@
     color: white;
     font-size: 100px;
     font-weight: 200;
-    // margin: auto;
+    margin: auto;
     margin-top: calc(50vh - 1em);
     text-align: center;
     text-shadow: 2px 2px 5px black;
