@@ -1,14 +1,9 @@
 import Head from 'next/head'
-import { useState } from 'react';
+import Link from 'next/link';
 import type { NextPage } from 'next'
 import styles from '../styles/Main.module.scss';
 
-import { SplitText } from '../Utils/SpiltText';
-import { AnimatePresence, motion } from 'framer-motion';
-
 const App: NextPage = () => {
-  let visible = true;
-
   return (
     <div className={styles.container}>
       <Head>
@@ -33,9 +28,9 @@ const App: NextPage = () => {
           <img src="/favicon-256.png" alt="" /> Cave Craft.in
 
           <ul>
-            <li> <a href="/store">Store</a> </li>
-            <li> <a href="/about">About</a> </li>
-            <li> <a href="/">Home</a> </li>
+            <li> <Link href="/store"> Store </Link> </li>
+            <li> <Link href="/about"> About </Link> </li>
+            <li> <Link href="/"> Home </Link> </li>
           </ul>
 
         </div>

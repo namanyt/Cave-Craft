@@ -1,8 +1,9 @@
 import { NextPage } from "next";
+import Link from 'next/link';
 
 const Store: NextPage = () => {
   return (
-    <a href="/">This is the Store Page</a>
+    <Link href='/'> This is the Store Page </Link>
   )
 }
 
