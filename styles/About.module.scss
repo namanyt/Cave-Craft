@@ -1,5 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
+.container {
+  margin: 0;
+  padding: 0;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .MobileText {
   display: none;
 }
@@ -13,15 +25,17 @@
   top: -5vh;
   left: -1vw;
   position: fixed;
+  overflow: hidden;
 }
 
 .Header {
-  height: 100vh;
-  width: 100vw;
+  width: 98vw;
+  position: fixed;
 
   .Title {
+    overflow: hidden;
+    position: fixed;
     width: inherit;
-    position: absolute;
     font-family: "Roboto", sans-serif;
     color: white;
     font-size: 100px;
@@ -30,7 +44,78 @@
     margin-top: calc(50vh - 1em);
     text-align: center;
     text-shadow: 2px 2px 5px black;
+
+    &:after {
+      background: none repeat scroll 0 0 transparent;
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 2px;
+      left: 50%;
+      position: absolute;
+      background: #fff;
+      transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      width: 0;
+    }
+    &:hover:after {
+      width: 30%;
+      left: 35%;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
   }
+}
+
+.Back {
+  opacity: 0.3;
+  margin-top: 2vh;
+  margin-left: 2vw;
+  padding: 10px 10px;
+  border: rgba(255, 255, 255, 0.3) solid;
+  border-width: 2px;
+  border-radius: 10px;
+  position: fixed;
+  color: white;
+  transition: 0.3s;
+
+  &:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  &:hover:after {
+    width: 100%;
+    left: 0;
+  }
+
+  &:hover {
+    opacity: 1;
+    border: rgba(0, 0, 0, 0) solid;
+    border-width: 2px;
+    cursor: pointer;
+  }
+}
+
+.Content {
+  overflow: hidden;
+  position: fixed;
+  margin: auto;
+  width: 98vw;
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  margin-top: calc(50vh - 1em);
+  text-align: center;
+  color: white;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 786px) {
