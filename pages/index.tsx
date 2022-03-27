@@ -6,7 +6,7 @@ import styles from '../styles/Main.module.scss';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { SplitText } from '../Utils/SpiltText';
-import { Alert, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Alert, Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 
 const App: NextPage = () => {
@@ -14,9 +14,10 @@ const App: NextPage = () => {
 
   const handleAlerts = () => {
     setShowAlert(true);
-    // setTimeout(() => {
-    //   setShowAlert(false);
-    // }, 2000)
+  }
+
+  const handleVoteButton = () => {
+    location.href = '/vote'
   }
 
   const copyIp = () => {
@@ -32,14 +33,14 @@ const App: NextPage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 1 } }}
           >
-          <div className={styles.Logo}>
-            <span><img src="/favicon-32.png" alt="" /> Cave Craft </span>
+            <div className={styles.Logo}>
+              <span><img src="/favicon-32.png" alt="" /> Cave Craft </span>
 
-            <ul>
-              <li> <Link href="/store"> Store </Link> </li>
-              <li> <Link href="/about"> About </Link> </li>
-              <li> <Link href="/"> Home </Link> </li>
-            </ul>
+              <ul>
+                <li> <Link href="/store"> Store </Link> </li>
+                <li> <Link href="/about"> About </Link> </li>
+                <li> <Link href="/"> Home </Link> </li>
+              </ul>
 
             </div>
           </motion.div>
@@ -47,7 +48,7 @@ const App: NextPage = () => {
 
         <img src="https://i.imgur.com/XL2PAd3.png" alt="" className={styles.bgImage} />
         {/* <Image src="https://i.imgur.com/XL2PAd3.png" width='1920' height='1080' className={styles.bgImage} /> */}
-        
+
         <section className={styles.Header}>
           <OverlayTrigger
             placement='top'
@@ -81,13 +82,70 @@ const App: NextPage = () => {
             </h1>
           </OverlayTrigger>
 
+          <motion.div
+            variants={{
+              hidden: {
+                opacity: 0
+              },
+              visible: {
+                opacity: 1,
+                transition: {
+                  duration: 1,
+                  delay: 1
+                }
+              },
+              hidden_exit: {
+                opacity: 0,
+                transition: {
+                  duration: 1
+                }
+              }
+            }}
+
+            initial='hidden'
+            animate='visible'
+            exit='hidden_exit'
+
+          >
+            <Button
+              variant='primary'
+              onClick={() => handleVoteButton()}
+              className={styles.VoteButton}
+            >
+              <AnimatePresence>
+                {true && (
+                  <motion.div
+                    initial={{ opacity: 1 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                  >
+                    <SplitText
+                      initial={{ y: '100%' }}
+                      animate="visible"
+                      variants={{
+                        visible: (i: number) => ({
+                          y: 0,
+                          transition: {
+                            delay: i * 0.1 + 1.5
+                          }
+                        })
+                      }}
+                    >
+                      Vote !
+                    </SplitText>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </Button>
+          </motion.div>
+
           <Alert
             key='primary'
             variant='success'
             show={showAlert}
             className={styles.Alert}
             dismissible={true}
-            onClose={() => {setShowAlert(false)}}
+            onClose={() => { setShowAlert(false) }}
           >
             Copied to Clipbord
           </Alert>
