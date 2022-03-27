@@ -28,6 +28,10 @@ const App: NextPage = () => {
     <>
       <div className={styles.container}>
         <nav className={styles.Nav}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 1 } }}
+          >
           <div className={styles.Logo}>
             <span><img src="/favicon-32.png" alt="" /> Cave Craft </span>
 
@@ -37,7 +41,8 @@ const App: NextPage = () => {
               <li> <Link href="/"> Home </Link> </li>
             </ul>
 
-          </div>
+            </div>
+          </motion.div>
         </nav>
 
         <img src="https://i.imgur.com/XL2PAd3.png" alt="" className={styles.bgImage} />

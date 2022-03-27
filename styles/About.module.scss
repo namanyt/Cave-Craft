@@ -118,6 +118,43 @@
   font-size: 20px;
 }
 
+.Staff {
+  overflow: hidden;
+  position: fixed;
+  width: 98vw;
+  margin: auto;
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  margin-top: calc(25vh - 1em);
+  color: white;
+
+  h1 {
+    text-align: center;
+    font-weight: 100;
+  }
+
+  .StaffCard {
+    margin-top: 50px;
+    text-align: center;
+    width: 10vw;
+    display: inline-block;
+    margin-left: 3.57vw;
+    color: black;
+    box-shadow: 5px 5px 10px black;
+    transition: .2s;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 5px 10px 10px black;
+    }
+
+    .CardImg {
+      border-radius: 20px;
+      padding: 10px;
+    }
+  }
+}
+
 @media screen and (max-width: 786px) {
   .Header,
   .Logo {

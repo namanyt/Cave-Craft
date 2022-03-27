@@ -1,16 +1,20 @@
 import { NextPage } from "next";
 import styles from '../styles/About.module.scss';
 
-import { AnimatePresence, motion, useViewportScroll } from 'framer-motion';
+import { AnimatePresence, m, motion, useViewportScroll } from 'framer-motion';
 import { UIEvent, useEffect, useState } from "react";
-import Button from "react-bootstrap/esm/Button";
 import Link from "next/link";
+import { Card, Button } from "react-bootstrap";
 
 const About: NextPage = () => {
-  let [visible, setVisibility] = useState(true);
+  let [visible, setVisibility] = useState(0);
 
   const handleClick = () => {
-    setVisibility(!visible);
+    if (visible == 0) setVisibility(1);
+    if (visible == 1) setVisibility(2);
+    if (visible == 2) setVisibility(0);
+
+    console.log(visible);
   }
 
   return (
@@ -34,7 +38,7 @@ const About: NextPage = () => {
               }}
             >
               <Link href='/'>
-                <p className={styles.Back}>To Home</p>  
+                <p className={styles.Back}>To Home</p>
               </Link>
             </motion.div>
           }
@@ -42,7 +46,7 @@ const About: NextPage = () => {
 
         <AnimatePresence>
           {
-            visible && <motion.div
+            visible == 0 && <motion.div
               variants={{
                 hidden: {
                   x: '100%',
@@ -77,7 +81,7 @@ const About: NextPage = () => {
         </AnimatePresence>
         <AnimatePresence>
           {
-            !visible && <motion.div
+            visible == 1 && <motion.div
               variants={{
                 hidden: {
                   opacity: 0
@@ -106,7 +110,90 @@ const About: NextPage = () => {
             </motion.div>
           }
         </AnimatePresence>
+        <AnimatePresence>
+          {
+            visible == 2 && <motion.div
+              variants={{
+                hidden: {
+                  y: '-100%',
+                  opacity: 0
+                },
+                visible: {
+                  y: 0,
+                  opacity: 1,
+                  transition: {
+                    duration: 1
+                  }
+                },
+                hidden_exit: {
+                  y: '100%',
+                  opacity: 0,
+                  transition: {
+                    duration: 1
+                  }
+                }
+              }}
 
+              initial='hidden'
+              animate='visible'
+              exit='hidden_exit'
+            >
+              <div className={styles.Staff} onClick={() => handleClick()}>
+                <h1>Our Staff</h1>
+                <Card className={styles.StaffCard}>
+                  <Card.Img className={styles.CardImg} variant="top" src="/toivi.webp" />
+                  <Card.Body>
+                    <Card.Title>Toivi</Card.Title>
+                    <Card.Subtitle>Owner</Card.Subtitle>
+                  </Card.Body>
+                </Card>
+                <Card className={styles.StaffCard}>
+                  <Card.Img className={styles.CardImg} variant="top" src="/drescape.webp" />
+                  <Card.Body>
+                    <Card.Title>Dr Escape</Card.Title>
+                    <Card.Subtitle>Owner</Card.Subtitle>
+                  </Card.Body>
+                </Card>
+                <Card className={styles.StaffCard}>
+                  <Card.Img className={styles.CardImg} variant="top" src="/cider.gif" />
+                  <Card.Body>
+                    <Card.Title>Cider</Card.Title>
+                    <Card.Subtitle>Developer</Card.Subtitle>
+                  </Card.Body>
+                </Card>
+                <Card className={styles.StaffCard}>
+                  <Card.Img className={styles.CardImg} variant="top" src="/pranay.webp" />
+                  <Card.Body>
+                    <Card.Title>Pranay</Card.Title>
+                    <Card.Subtitle>Admin</Card.Subtitle>
+                  </Card.Body>
+                </Card>
+                <Card className={styles.StaffCard}>
+                  <Card.Img className={styles.CardImg} variant="top" src="/vaibhavi.gif" />
+                  <Card.Body>
+                    <Card.Title>Vaibhavi</Card.Title>
+                    <Card.Subtitle>Admin</Card.Subtitle>
+                  </Card.Body>
+                </Card>
+                <Card className={styles.StaffCard}>
+                  <Card.Img className={styles.CardImg} variant="top" src="/insu.webp" />
+                  <Card.Body>
+                    <Card.Title style={{ fontSize: '16px' }}>MostInsaneGirl</Card.Title>
+                    <Card.Subtitle>Moderator</Card.Subtitle>
+                  </Card.Body>
+                </Card>
+                <Card className={styles.StaffCard}>
+                  <Card.Img className={styles.CardImg} variant="top" src="/inphu.webp" />
+                  <Card.Body>
+                    <Card.Title>Inferno</Card.Title>
+                    <Card.Subtitle>Moderator</Card.Subtitle>
+                  </Card.Body>
+                </Card>
+              </div>
+
+            </motion.div>
+          }
+        </AnimatePresence>
 
       </div>
       <h1 className={styles.MobileText}>
