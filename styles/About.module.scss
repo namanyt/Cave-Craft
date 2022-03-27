@@ -157,10 +157,13 @@
 
 @media screen and (max-width: 786px) {
   .Header,
-  .Logo {
+  .Logo,
+  .Content,
+  .Back,
+  .Staff {
     display: none;
   }
-
+  
   .bgImage {
     filter: brightness(80%) blur(3px);
 
