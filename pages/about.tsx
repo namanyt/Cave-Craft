@@ -105,7 +105,7 @@ const About: NextPage = () => {
               exit='hidden_exit'
             >
               <p onClick={() => handleClick()} className={styles.Content}>
-                Toivi Complete this About us 🔫 (or dm it)
+                Toivi dm me the Desciption of the Server
               </p>
             </motion.div>
           }
