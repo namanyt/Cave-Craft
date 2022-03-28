@@ -32,17 +32,15 @@ const App: NextPage = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 1 } }}
+            className={styles.Logo}
           >
-            <div className={styles.Logo}>
-              <span><img src="/favicon-32.png" alt="" /> Cave Craft </span>
+            <span> <motion.img initial={{ rotateZ: 0 }} whileHover={{ rotateZ: 360, scale: 1.5, transition: { duration: .5 } }} exit={{ rotateZ: -360, scale: 1, transition: {duration:.5, ease: 'easeInOut'}}} src="/favicon-32.png" alt="" /> Cave Craft </span>
 
-              <ul>
-                <li> <Link href="/store"> Store </Link> </li>
-                <li> <Link href="/about"> About </Link> </li>
-                <li> <Link href="/"> Home </Link> </li>
-              </ul>
-
-            </div>
+            <ul>
+              <li> <Link href="/store"> Store </Link> </li>
+              <li> <Link href="/about"> About </Link> </li>
+              <li> <Link href="/"> Home </Link> </li>
+            </ul>
           </motion.div>
         </nav>
 

@@ -32,11 +32,6 @@
     width: 140px;
     transition: 0.2s;
     text-shadow: 3px 3px 5px #ffffffff;
-
-    &:hover {
-      transform: translateY(-2px);
-      text-shadow: 3px 5px 5px #fffffffc;
-    }
   }
 
   position: absolute;
@@ -110,6 +105,23 @@
     margin-top: calc(50vh - 1em);
     text-align: center;
     text-shadow: 2px 2px 5px black;
+
+    &:after {
+      background: none repeat scroll 0 0 transparent;
+      bottom: 20px;
+      content: "";
+      display: block;
+      height: 1px;
+      left: 50%;
+      position: absolute;
+      background: #fff;
+      transition: width 0.5s ease 0.1s, left 0.5s ease 0.1s;
+      width: 0;
+    }
+    &:hover:after {
+      width: 30%;
+      left: 35%;
+    }
   }
 }
 
@@ -120,8 +132,8 @@
   margin-top: calc(60vh - 1em);
   margin-left: calc(47vw - 2em);
   padding-left: 3vw;
-  padding-bottom: .5vw;
-  padding-top: .5vw;
+  padding-bottom: 0.5vw;
+  padding-top: 0.8vw;
   padding-right: 3vw;
 }
 
