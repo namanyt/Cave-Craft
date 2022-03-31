@@ -1,12 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 type Data = {
-  message: string
+	message: string
 }
 
 export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
+	req: NextApiRequest,
+	res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ message: 'This is the Cave Craft API... this is still work in progress' })
+	res.status(200).json({
+		message: 'This is the Cave Craft API... this is still work in progress'
+	})
 }
